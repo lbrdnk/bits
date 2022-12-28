@@ -6,8 +6,6 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <>
-      <main><div>cicmbbrusko</div>{children}</main>
-    </>
+    <main>{children}</main>
   )
 }
