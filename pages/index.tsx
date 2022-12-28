@@ -1,11 +1,18 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { PostThumb, PostThumbProps } from '../components/PostThumb'
+import { fetchPostThumbs } from '../lib/requests'
 
-const inter = Inter({ subsets: ['latin'] })
+export const getStaticProps: GetStaticProps = async (context) => {
+  const postThumbs = await fetchPostThumbs()
+  return {
+    props: {
+      postThumbs
+    }
+  }
+}
 
-export default function Home() {
+export default function Home({ postThumbs }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -15,7 +22,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={"bg-red-100"}>
-        <h1>cicimbrus</h1>
+        {postThumbs.map((p: PostThumbProps) => <PostThumb {...p} />)}
       </main>
     </>
   )
