@@ -1,8 +1,9 @@
 type ContentfulPost = {
   sys: {
     id: string,
-    createdAt: string,
+    // createdAt: string,
     updatedAt: string,
+    // firstPublishedAt: string
   };
   fields: {
     title: string;
@@ -14,7 +15,8 @@ export async function fetchPostThumbs() {
   const res = await fetch(process.env.CMS_INIT_POST_THUMBS_URL as string);
   const body = await res.json();
   const postThubms = body.items.map((item: ContentfulPost) => ({
-    createdAt: item.sys.createdAt,
+    // createdAt: item.sys.createdAt,
+    // firstPublishedAt: item.sys.firstPublishedAt,
     gist: item.fields.gist,
     id: item.sys.id,
     title: item.fields.title,

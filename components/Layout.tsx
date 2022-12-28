@@ -6,6 +6,16 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <main>{children}</main>
+    <div
+      style={{
+        gridTemplateColumns: "auto 65ch auto"
+      }}
+      className="grid gap-4"
+    >
+      <header className="">
+        <h1 className="text-right text-4xl">bits</h1>
+      </header>
+      <main>{children}</main>
+    </div>
   )
 }
