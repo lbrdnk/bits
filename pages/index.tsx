@@ -22,7 +22,7 @@ export default function Home({ postThumbs }: InferGetStaticPropsType<typeof getS
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={"bg-red-100"}>
-        {postThumbs.map((p: PostThumbProps) => <PostThumb {...p} />)}
+        {postThumbs.map((props: PostThumbProps) => <PostThumb {...props} />)}
       </main>
     </>
   )
