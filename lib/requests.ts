@@ -1,13 +1,14 @@
 type ContentfulPost = {
   sys: {
-    id: string,
+    id: string;
     // createdAt: string,
-    updatedAt: string,
+    updatedAt: string;
     // firstPublishedAt: string
   };
   fields: {
     title: string;
     gist: string;
+    content?: string;
   };
 };
 
@@ -24,3 +25,45 @@ export async function fetchPostThumbs() {
   }));
   return postThubms;
 }
+
+function postUrl(id: string): string {
+  return (
+    `${process.env.CMS_BASE_URL}` +
+    `/spaces/${process.env.CMS_SPACE_ID}` +
+    `/environments/${process.env.CMS_ENV_ID}` +
+    `/entries/${id}` +
+    `?access_token=${process.env.CMS_ACCESS_TOKEN}`
+  );
+}
+
+type Post = {
+  id: string;
+  title: string;
+  content: string;
+};
+
+export async function fetchPost(id: string) {
+  const res = await fetch(postUrl(id));
+  const body = await res.json();
+  const post = {
+    id: body.sys.id,
+    title: body.fields.title,
+    content: body.fields.content,
+  };
+  return post;
+}
+
+const postIdsUrl =
+  `${process.env.CMS_BASE_URL}` +
+  `/spaces/${process.env.CMS_SPACE_ID}` +
+  `/environments/${process.env.CMS_ENV_ID}` +
+  `/entries/` +
+  `?access_token=${process.env.CMS_ACCESS_TOKEN}` +
+  `&select=sys.id`;
+
+export const fetchPostIds = async (): Promise<string[]> => {
+  const res = await fetch(postIdsUrl);
+  const body = await res.json();
+  const ids = body.items.map((item: ContentfulPost) => item.sys.id);
+  return ids;
+};

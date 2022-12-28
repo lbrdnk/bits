@@ -35,7 +35,7 @@ export function PostThumb({ createdAt, gist, id, title, updatedAt }: PostThumbPr
           <h1 className="inline font-bold">
             <Link
               className="inline text-blue-500 hover:text-purple-500"
-              href="https://google.com"
+              href={`/bits/${id}`}
             >
               <span className="underline underline-offset-2">{title}</span>
             </Link>

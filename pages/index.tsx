@@ -13,12 +13,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 export default function Home({ postThumbs }: InferGetStaticPropsType<typeof getStaticProps>) {
-
-  // const Component
-  // const [px, pxs] = postThumbs
-  // const pxs.reduce(
-  //   px)
-
+  
   return (
     <>
       <Head>
