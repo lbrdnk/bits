@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import ReactMarkdown from 'react-markdown'
 import { fetchPost, fetchPostIds } from "../../lib/requests";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -21,5 +22,11 @@ export const getStaticProps: GetStaticProps = async (context: InferGetStaticProp
 }
 
 export default function Post({ id, title, content }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <div><div>{id}</div><div>{title}</div></div>
+  // return <div><div>{id}</div><div>{title}</div></div>
+  return (
+    <>
+    {/* <h1 className="prose">{title}</h1> */}
+    <ReactMarkdown className="p-2 prose break-words" children={"# " + title + "\n\n" + content} />
+    </>
+  )
 }

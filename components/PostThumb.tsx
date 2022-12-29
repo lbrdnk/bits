@@ -38,11 +38,11 @@ export function PostThumb({ createdAt, gist, id, title, updatedAt }: PostThumbPr
               href={`/bits/${id}`}
             >
               <span className="underline underline-offset-2">{title}</span>
+              {maybePeriod(title) + " "}
             </Link>
-            {maybePeriod(title) + " "}
           </h1>
-          {/* <p className="inline">{gist}</p> */}
-          <p className="inline">{longLorem}</p>
+          <p className="inline">{gist}</p>
+          {/* <p className="inline">{longLorem}</p> */}
         </nav>
       </section>
       <time className="text-xs">{publishedAt}</time>

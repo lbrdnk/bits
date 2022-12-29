@@ -7,7 +7,7 @@ type ContentfulPost = {
   };
   fields: {
     title: string;
-    gist: string;
+    gist: string | null;
     content?: string;
   };
 };
@@ -18,7 +18,7 @@ export async function fetchPostThumbs() {
   const postThubms = body.items.map((item: ContentfulPost) => ({
     // createdAt: item.sys.createdAt,
     // firstPublishedAt: item.sys.firstPublishedAt,
-    gist: item.fields.gist,
+    gist: item.fields.gist || null,
     id: item.sys.id,
     title: item.fields.title,
     updatedAt: item.sys.updatedAt,
