@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { PostThumb, PostThumbProps } from '../components/PostThumb'
-import { fetchPostThumbs } from '../lib/requests'
+import { postThumbs } from '../lib/requests'
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const postThumbs = await fetchPostThumbs()
+  const pt = await postThumbs()
   return {
     props: {
-      postThumbs
+      postThumbs: pt
     }
   }
 }
@@ -24,10 +24,10 @@ export default function Home({ postThumbs }: InferGetStaticPropsType<typeof getS
       </Head>
       <main>
         {postThumbs.map((props: PostThumbProps, idx: number) => (
-          <>
+          <div key={props.id}>
             {idx > 0 && <hr className="my-1" />}
-            <PostThumb {...props} />
-          </>
+            <PostThumb  {...props} />
+          </div>
         ))}
 
       </main>
