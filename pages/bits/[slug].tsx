@@ -24,7 +24,7 @@ export default function Post({ title, content }: InferGetStaticPropsType<typeof 
   return (
     <>
       {/* <h1 className="prose">{title}</h1> */}
-      <ReactMarkdown className="p-2 prose break-words" children={"# " + title + "\n\n" + content} />
+      <ReactMarkdown className="p-1 prose break-words" children={"# " + title + "\n" + content} />
     </>
   )
 }

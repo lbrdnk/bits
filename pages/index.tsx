@@ -24,10 +24,7 @@ export default function Home({ postThumbs }: InferGetStaticPropsType<typeof getS
       </Head>
       <main>
         {postThumbs.map((props: PostThumbProps, idx: number) => (
-          <div key={props.id}>
-            {idx > 0 && <hr className="my-1" />}
-            <PostThumb  {...props} />
-          </div>
+            <PostThumb  key={props.id} {...props} />
         ))}
 
       </main>

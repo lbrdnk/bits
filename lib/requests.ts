@@ -22,8 +22,6 @@ type Post = {
   createdAt: string;
 };
 
-type PostSomeFields = Partial<Post>;
-
 const postThumbsUrl =
   `${process.env.CMS_BASE_URL}` +
   `/spaces/${process.env.CMS_SPACE_ID}` +
@@ -31,7 +29,8 @@ const postThumbsUrl =
   `/entries/` +
   `?access_token=${process.env.CMS_ACCESS_TOKEN}` +
   `&content_type=post` +
-  `&select=fields.gist,fields.slug,fields.title,sys.id,sys.createdAt`;
+  `&select=fields.gist,fields.slug,fields.title,sys.id,sys.createdAt` +
+  `&order=-sys.createdAt`;
 
 export async function postThumbs() {
   const res = await fetch(postThumbsUrl);
