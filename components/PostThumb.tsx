@@ -14,30 +14,23 @@ function formatDate(dateStr: string) {
   return new Date(dateStr).toDateString()
 }
 
-function maybePeriod(title: string): string {
-  return title.match(/\.$/) ? "" : "."
-}
-
-function maybeAddPeriod(text: string): string {
-  return text.replace(/\.?$/, ".")
-}
-
 export function PostThumb({ createdAt, gist, id, slug, title }: PostThumbProps) {
 
   const publishedAt = formatDate(createdAt)
   let titleNormalized = title || "Untitled";
 
-  // rework layout, flex -> grid?, grid lebo to co mam je kompliko
+  // todo reiterate md:grid
+  // todo float time to first baseline in heading / gist text block
   return (
     <article
-      className="px-1
+      className="px-1 md:px-2
       [&:not(:first-child)]:pt-2 [&:not(:first-child)]:border-t-2 [&:not(:first-child)]:mt-2
-      md:grid md:grid-cols-[minmax(10ch,1fr)_max-content] md:grid-rows-[auto_auto]
+
       flex flex-col"
     >
       <Link
-        className="text-lg  hover:text-purple-700 text-blue-700"
-        href={`/bits/${slug}`}
+        className="hover:text-purple-700 text-blue-700"
+        href={`/post/${slug}`}
       >
         {titleNormalized}
       </Link>
