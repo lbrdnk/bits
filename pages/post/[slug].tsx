@@ -22,6 +22,8 @@ export const getStaticProps: GetStaticProps = async (context: InferGetStaticProp
 
 export default function Post({ title, content }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-      <ReactMarkdown className="p-1 prose break-words" children={"# " + title + "\n" + content} />
+    <ReactMarkdown className="p-1 prose break-words">
+      {"# " + title + "\n" + content}
+    </ReactMarkdown>
   )
 }
