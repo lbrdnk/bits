@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# What
 
-## Getting Started
+- Frontend for headless cms.
+- Presentation of notes (bits, maybe pieces sometime in future).
+  - Information that I will presumably want to get back to in future.
+- To be publicly accessible from the internet.
+- WIP.
 
-First, run the development server:
+# Why
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. While programming, reading, reasearching, I do encounter bits of information forming knowledge that is easily forgotten, when not used for some some time (months). To overcome this I've decided to save those bits into cms and build simple frontend so it is easily accessible.
+2. While building the frontend I'd like to excercise use of `nextjs`, `typescript`, _headless cms_ and more, as to try out and evaluate current (2021 and further) frontend building approaches for my future purposes. Long story short, to refresh my knowledge on how frontend is built.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# How
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Used:
+- nextjs,
+- typescript,
+- tailwindcss,
+- md in react
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# Status
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Working draft of frontend for mobile and desktop.
