@@ -14,7 +14,7 @@ describe('Layout', () => {
     expect(main).toBeInTheDocument()
 
     const sub = screen.getByRole('heading', {
-      name: /to further reiterate/i,
+      name: /of information/i,
     })
 
     expect(sub).toBeInTheDocument()
