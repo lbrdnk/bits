@@ -1,4 +1,5 @@
 import Link from "next/link"
+import ReactMarkdown from 'react-markdown'
 
 export type PostThumb = {
   createdAt: string,
@@ -17,6 +18,7 @@ function formatDate(dateStr: string) {
 export function PostThumb({ createdAt, gist, id, slug, title }: PostThumbProps) {
 
   const publishedAt = formatDate(createdAt)
+  // following redundant -- title enforced on cms level now?
   let titleNormalized = title || "Untitled";
 
   // todo reiterate md:grid
@@ -32,14 +34,19 @@ export function PostThumb({ createdAt, gist, id, slug, title }: PostThumbProps) 
         className="hover:text-purple-700 text-blue-700"
         href={`/post/${slug}`}
       >
-        {titleNormalized}
+        <ReactMarkdown>
+          {titleNormalized}
+        </ReactMarkdown>
       </Link>
       <time
         className="block font-mono text-xs"
       >
         {publishedAt}
       </time>
-      {gist && <p className="mt-1 text-justify">{gist}</p>}
+      {
+        gist &&
+        <ReactMarkdown className="mt-1">{gist}</ReactMarkdown>
+      }
     </article>
   )
 }

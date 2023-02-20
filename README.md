@@ -1,10 +1,10 @@
 # What
 
 - Frontend for headless cms.
-- Presentation of notes (bits, maybe pieces sometime in future).
+- Presentation of notes (bits).
   - Information that I will presumably want to get back to in future.
 - To be publicly accessible from the internet.
-- WIP.
+- __WIP__.
 
 # Why
 
@@ -27,5 +27,6 @@ Working draft of frontend for mobile and desktop.
 
 - Breadcrumbs,
   - with headers title.
-- Search and filter posts,
+- Tags.
+- Search and filter posts.
 - Ability to pin a post.
